@@ -363,7 +363,7 @@ if(appInstagramEl){
 }
 
 // google-apps-script/Code.gs를 스프레드시트에 배포한 뒤 발급되는 웹 앱 URL을 아래에 붙여넣어 주세요.
-const GAS_WEB_APP_URL='__GAS_URL__';
+const GAS_WEB_APP_URL='https://script.google.com/macros/s/AKfycbygVJrFBbSzEPYMOlrKI1dmJ5eQo47twTwn_pAL02eP6-YztHgYXwqpI6CsUcOzBPwr/exec';
 const APP_TIER='D';
 const APP_PRICE='20만원';
 
@@ -384,7 +384,7 @@ function submitApplication(e){
     note:form.note.value.trim()
   };
 
-  if(!GAS_WEB_APP_URL || GAS_WEB_APP_URL.indexOf('__GAS_URL__')!==-1){
+  if(!GAS_WEB_APP_URL || GAS_WEB_APP_URL.indexOf('YOUR_WEB_APP_URL')!==-1){
     console.log('캠페인 신청 데이터', data);
     showToast('구글시트 연동 URL이 설정되지 않았습니다');
     return false;
