@@ -10,19 +10,18 @@
  * 4) 배포 후 발급되는 웹 앱 URL(.../exec)을 복사해서 전달한다.
  *    (index.html 등 각 페이지의 GAS_WEB_APP_URL에 채워 넣을 값)
  *
- * 고료 등급(A~F)별로 시트 탭을 자동 생성해서 각 탭에 신청 데이터를 쌓는다.
+ * A~F 등급 지원자 전체가 같은 시트(첫 번째 탭)에 쌓이고, '등급'/'고료' 컬럼으로 구분된다.
  */
 
+var TARGET_SHEET_NAME = '시트1';
 var HEADER = ['제출시각', '등급', '고료', '이름', '인스타그램', '휴대폰', '이메일', '우편번호', '주소', '요청사항'];
 
 function doPost(e) {
   var data = JSON.parse(e.postData.contents);
   var ss = SpreadsheetApp.getActiveSpreadsheet();
-  var tabName = data.tier || '기타';
-  var sheet = ss.getSheetByName(tabName);
+  var sheet = ss.getSheetByName(TARGET_SHEET_NAME) || ss.getSheets()[0];
 
-  if (!sheet) {
-    sheet = ss.insertSheet(tabName);
+  if (sheet.getLastRow() === 0) {
     sheet.appendRow(HEADER);
     sheet.getRange(1, 1, 1, HEADER.length).setFontWeight('bold');
   }
