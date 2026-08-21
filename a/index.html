@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>NURICLE — 인플루언서 가이드라인</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;500&display=swap');
+
+:root{
+  --brand:#C9705A;
+  --brand-dark:#8F4534;
+  --brand-light:#F6E4DD;
+  --bg:#FAF6F2;
+  --ink:#221A17; --gray:#7A6A64; --white:#fff;
+  --mono:'JetBrains Mono',monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Noto Sans KR',sans-serif;background:var(--bg);color:var(--ink);line-height:1.7;-webkit-tap-highlight-color:transparent}
+.wrap{max-width:680px;margin:0 auto;background:var(--bg)}
+img{max-width:100%;display:block}
+
+/* HERO */
+.banner img{width:100%;height:auto}
+.hero{padding:32px 24px 40px;text-align:center}
+.hero-badge{display:inline-block;background:var(--brand-light);color:var(--brand-dark);border-radius:100px;font-size:11px;letter-spacing:.18em;text-transform:uppercase;padding:6px 16px;margin-bottom:18px;font-weight:700}
+.hero h1{font-size:clamp(30px,9vw,42px);font-weight:900;letter-spacing:.02em}
+.hero-sub{font-size:12px;color:var(--gray);margin-top:8px;letter-spacing:.08em;font-family:var(--mono)}
+
+/* SECTION */
+.section{padding:40px 24px;border-bottom:1px solid rgba(34,26,23,.08)}
+.section-eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--brand-dark);margin-bottom:8px;font-weight:700}
+.section-title{font-size:20px;font-weight:900;letter-spacing:.01em;margin-bottom:20px}
+.badge-req{display:inline-block;background:var(--brand);color:#fff;font-size:10px;font-weight:700;letter-spacing:.08em;border-radius:6px;padding:2px 8px;vertical-align:middle;margin-left:6px}
+
+/* ABOUT BRAND */
+.about-title{font-size:19px;font-weight:900;margin-bottom:10px;line-height:1.5}
+.about-desc{font-size:14px;color:var(--gray);margin-bottom:20px}
+.brand-link{display:inline-block;color:var(--brand-dark);font-size:13px;font-weight:700;text-decoration:none;border-bottom:1px solid var(--brand-dark);padding-bottom:3px}
+
+/* OVERVIEW GRID */
+.overview{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.ov-card{background:var(--white);border:1px solid rgba(34,26,23,.1);border-radius:14px;padding:16px}
+.ov-label{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--gray);margin-bottom:6px}
+.ov-value{font-size:15px;font-weight:700}
+.ov-note{font-size:12px;margin-top:4px}
+
+/* PRODUCTS */
+.products{display:flex;flex-direction:column;gap:14px;margin-top:18px}
+.product-card{background:var(--white);border:1px solid rgba(34,26,23,.1);border-radius:16px;overflow:hidden;display:flex;gap:14px;padding:14px}
+.product-thumb{flex:none;width:88px;height:88px;border-radius:12px;overflow:hidden;background:var(--brand-light);display:flex;align-items:center;justify-content:center}
+.product-thumb img{width:100%;height:100%;object-fit:cover}
+.product-thumb.placeholder{font-family:var(--mono);font-size:10px;color:var(--brand-dark);text-align:center;padding:6px;line-height:1.4}
+.product-body{flex:1;display:flex;flex-direction:column;justify-content:center;gap:6px}
+.product-name{font-size:14px;font-weight:700}
+.product-link{font-size:12px;color:var(--brand-dark);text-decoration:none;font-weight:700}
+
+/* PLACEHOLDER NOTE */
+.tba{background:var(--white);border:1px dashed var(--brand);border-radius:14px;padding:18px;font-size:13px;color:var(--gray);text-align:center}
+.tba strong{color:var(--brand-dark)}
+
+/* COLLAB */
+.collab-box{background:var(--white);border:1px solid rgba(34,26,23,.1);border-radius:14px;padding:16px;font-size:14px;font-weight:700;color:var(--brand-dark);font-family:var(--mono);margin-top:10px}
+
+/* NOTICE */
+.notice{background:var(--brand-light);border-radius:16px;padding:20px}
+.notice-title{font-family:var(--mono);font-size:11px;letter-spacing:.16em;color:var(--brand-dark);font-weight:700;margin-bottom:10px}
+.notice p{font-size:13px;color:var(--ink);margin-bottom:6px}
+
+/* SETTLEMENT */
+.copybox{background:var(--white);border:1px dashed var(--brand);border-radius:14px;padding:16px;font-size:14px;white-space:pre-wrap;position:relative;margin-top:8px}
+.copybtn{position:absolute;top:10px;right:10px;background:var(--ink);color:#fff;border:none;border-radius:8px;font-size:11px;padding:6px 12px;cursor:pointer}
+.copybtn.done{background:var(--brand)}
+.settle-row{margin-bottom:18px}
+.settle-label{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--gray);margin-bottom:6px}
+.settle-value{font-size:14px}
+
+/* FOOTER */
+.footer{padding:48px 24px;text-align:center}
+.footer-brand{font-size:24px;font-weight:900;letter-spacing:.12em;color:var(--brand-dark);opacity:.5;margin-bottom:16px}
+.footer p{font-size:12px;color:var(--gray);margin-bottom:4px}
+
+@media(max-width:480px){.overview{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- ░░ BANNER + HERO ░░ -->
+  <div class="banner"><img src="../배너.PNG" alt="NURICLE 배너" /></div>
+  <div class="hero">
+    <div class="hero-badge">Influencer Guideline</div>
+    <h1>뉴리클 가이드라인</h1>
+    <div class="hero-sub">NURICLE × CREATOR CAMPAIGN</div>
+  </div>
+
+  <!-- ░░ ABOUT BRAND ░░ -->
+  <div class="section">
+    <div class="section-eyebrow">About Brand</div>
+    <div class="section-title">브랜드 소개</div>
+    <div class="about-title">Skin Health First, NURICLE</div>
+    <p class="about-desc">반복되는 피부 고민을 해결하기 위해 최소한의 루틴으로 최상의 더마 포뮬러를 제안하는 프로메디컬 스킨케어 브랜드입니다.</p>
+    <a href="https://www.nuricle.kr/" target="_blank" class="brand-link">브랜드 바로가기 →</a>
+  </div>
+
+  <!-- ░░ CAMPAIGN INFO ░░ -->
+  <div class="section">
+    <div class="section-eyebrow">Campaign Info</div>
+    <div class="section-title">캠페인 개요</div>
+    <p style="font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--gray);margin-bottom:10px">Schedule &amp; Details</p>
+    <div class="overview">
+      <div class="ov-card">
+        <div class="ov-label">업로드</div>
+        <div class="ov-value">⚠️</div>
+        <div class="ov-note" style="color:var(--brand-dark)">일정 미준수 시 고료 지급 불가</div>
+      </div>
+      <div class="ov-card"><div class="ov-label">형식</div><div class="ov-value">릴스 (Reels)</div></div>
+      <div class="ov-card"><div class="ov-label">공동작업자</div><div class="ov-value">필수</div></div>
+      <div class="ov-card"><div class="ov-label">2차 활용</div><div class="ov-value">동의</div></div>
+      <div class="ov-card"><div class="ov-label">업로드 유지</div><div class="ov-value">3개월</div></div>
+    </div>
+
+    <p style="font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--gray);margin:24px 0 4px">제공 제품</p>
+    <div class="products">
+      <div class="product-card">
+        <div class="product-thumb"><img src="../제품사진.PNG" alt="GLUTA-PDRN ELASTIC CLEANSER" /></div>
+        <div class="product-body">
+          <div class="product-name">GLUTA-PDRN ELASTIC CLEANSER</div>
+          <a class="product-link" href="https://www.nuricle.kr/shop_view/?idx=35" target="_blank">제품 상세 보기 →</a>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-thumb"><img src="../크림.PNG" alt="ECTO_PDRN 15% GLAZING CREAM" /></div>
+        <div class="product-body">
+          <div class="product-name">ECTO_PDRN 15% GLAZING CREAM</div>
+          <a class="product-link" href="https://www.nuricle.kr/shop_view/?idx=34" target="_blank">제품 상세 보기 →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ░░ CONTENT GUIDE ░░ -->
+  <div class="section">
+    <div class="section-eyebrow">Content Guide</div>
+    <div class="section-title">제작 가이드</div>
+    <div class="tba"><strong>제작 가이드는 추후 전달 예정입니다.</strong></div>
+
+    <p style="font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--gray);margin:24px 0 4px">해시태그 <span class="badge-req">필수</span></p>
+    <div class="tba">해시태그는 추후 전달 예정입니다.</div>
+
+    <p style="font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--gray);margin:24px 0 4px">공동작업자 <span class="badge-req">필수</span></p>
+    <div class="collab-box">@nuricle_kr</div>
+  </div>
+
+  <!-- ░░ NOTICE ░░ -->
+  <div class="section">
+    <div class="notice">
+      <div class="notice-title">Notice</div>
+      <p>업로드 기한을 반드시 준수해주세요.</p>
+      <p>기간 내 업로드가 이루어지지 않을 경우 고료 지급이 불가합니다.</p>
+      <p>공동작업자 설정 및 콘텐츠 2차 활용에 동의하는 것으로 간주됩니다.</p>
+    </div>
+  </div>
+
+  <!-- ░░ REFERENCE ░░ -->
+  <div class="section">
+    <div class="section-eyebrow">Reference</div>
+    <div class="section-title">레퍼런스 콘텐츠</div>
+    <div class="tba"><strong>레퍼런스 콘텐츠는 추후 전달 예정입니다.</strong></div>
+  </div>
+
+  <!-- ░░ SETTLEMENT ░░ -->
+  <div class="section">
+    <div class="section-eyebrow">Settlement</div>
+    <div class="section-title">정산</div>
+    <p style="font-size:13px;color:var(--gray);margin-bottom:18px">캠페인 선정 완료 후 정산을 위한 서류 및 연락처를 누락 없이 제출해 주세요. 확인 후 1~2주 이내에 처리가 완료됩니다.</p>
+
+    <div class="settle-row">
+      <div class="settle-label">제출 서류</div>
+      <div class="settle-value">성함, 연락처, 신분증 사본 (뒷자리 포함), 통장 사본</div>
+    </div>
+
+    <div class="settle-row">
+      <div class="settle-label">수신 이메일</div>
+      <div class="copybox" id="mail">hwangyksiriai@gmail.com<button class="copybtn" onclick="cp(this,'mail')">복사</button></div>
+    </div>
+
+    <div class="settle-row">
+      <div class="settle-label">메일 제목</div>
+      <div class="copybox" id="subject">뉴리클 _이름_@인스타핸들<button class="copybtn" onclick="cp(this,'subject')">복사</button></div>
+    </div>
+
+    <div class="notice" style="margin-top:20px">
+      <div class="notice-title">Notice</div>
+      <p>정산 자료는 브랜드로부터 확정 안내를 받은 인플루언서에 한해서 제출해 주세요.</p>
+      <p>확정 안내를 받지 못한 경우 서류를 제출하지 마세요.</p>
+    </div>
+  </div>
+
+  <!-- ░░ FOOTER ░░ -->
+  <div class="footer">
+    <div class="footer-brand">NURICLE</div>
+    <p>본 가이드라인은 선별된 크리에이터에게만 제공되는 자료입니다.</p>
+    <p>문의사항이 있으시면 담당자에게 연락해 주세요.</p>
+    <p style="margin-top:10px">※ 자세한 가이드라인은 추후 브랜드 사정에 따라 변경될 수 있습니다.</p>
+  </div>
+
+</div>
+
+<script>
+function cp(btn,id){
+  const box=document.getElementById(id);
+  const txt=box.childNodes[0].textContent.trim();
+  navigator.clipboard.writeText(txt).then(()=>{btn.textContent='복사됨 ✓';btn.classList.add('done');setTimeout(()=>{btn.textContent='복사';btn.classList.remove('done')},1600)});
+}
+</script>
+</body>
+</html>

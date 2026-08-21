@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>NURICLE — 캠페인 에셋 허브</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Playfair+Display:wght@600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+:root{
+  --brand:#C9705A;
+  --brand-dark:#8F4534;
+  --brand-light:#F6E4DD;
+  --bg:#FAF6F2;
+  --ink:#221A17; --gray:#7A6A64; --white:#fff;
+  --mono:'JetBrains Mono',monospace;
+  --serif:'Playfair Display',serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Noto Sans KR',sans-serif;background:var(--bg);color:var(--ink);min-height:100vh}
+.wrap{max-width:680px;margin:0 auto;padding:64px 24px 80px}
+
+.eyebrow{text-align:center;font-family:var(--mono);font-size:12px;letter-spacing:.3em;text-transform:uppercase;color:var(--brand);opacity:.75;margin-bottom:14px}
+.title{text-align:center;font-family:var(--serif);font-size:26px;font-weight:700;margin-bottom:44px}
+
+.rows{display:flex;flex-direction:column;gap:16px}
+.row{display:flex;align-items:center;gap:18px;background:var(--white);border:1px solid rgba(34,26,23,.1);border-radius:16px;padding:20px 22px;text-decoration:none;color:var(--ink);transition:box-shadow .15s ease, transform .15s ease}
+.row:hover{box-shadow:0 6px 18px rgba(143,69,52,.12);transform:translateY(-1px)}
+.row-letter{font-family:var(--serif);font-size:20px;font-weight:700;color:var(--brand);width:24px;flex:none}
+.row-label{flex:1;font-size:15px;font-weight:500}
+.row-arrow{color:var(--brand-dark);font-size:16px;flex:none}
+
+/* PASSWORD GATE */
+#gate{position:fixed;inset:0;background:var(--bg);display:flex;align-items:center;justify-content:center;z-index:100;padding:24px}
+#gate.hidden{display:none}
+.gate-box{width:100%;max-width:320px;text-align:center}
+.gate-eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.25em;text-transform:uppercase;color:var(--brand);opacity:.75;margin-bottom:10px}
+.gate-title{font-family:var(--serif);font-size:20px;font-weight:700;margin-bottom:24px}
+#pw{width:100%;font-size:18px;letter-spacing:.4em;text-align:center;padding:14px;border:1px solid rgba(34,26,23,.18);border-radius:12px;background:var(--white);color:var(--ink);outline:none}
+#pw:focus{border-color:var(--brand)}
+#gate-btn{margin-top:14px;width:100%;background:var(--brand);color:#fff;border:none;border-radius:12px;padding:13px;font-size:14px;font-weight:700;cursor:pointer}
+#gate-err{color:#c62828;font-size:12px;margin-top:10px;min-height:16px}
+
+#content{display:none}
+#content.show{display:block}
+</style>
+</head>
+<body>
+
+<div id="gate">
+  <div class="gate-box">
+    <div class="gate-eyebrow">Lusom Internal</div>
+    <div class="gate-title">비밀번호를 입력하세요</div>
+    <input id="pw" type="password" inputmode="numeric" maxlength="4" placeholder="••••" />
+    <button id="gate-btn" onclick="checkPw()">확인</button>
+    <div id="gate-err"></div>
+  </div>
+</div>
+
+<div id="content">
+  <div class="wrap">
+    <div class="eyebrow">Lusom Internal</div>
+    <div class="title">캠페인 에셋 허브</div>
+    <div class="rows">
+      <a class="row" href="a/index.html"><span class="row-letter">A</span><span class="row-label">5만원</span><span class="row-arrow">→</span></a>
+      <a class="row" href="b/index.html"><span class="row-letter">B</span><span class="row-label">10만원</span><span class="row-arrow">→</span></a>
+      <a class="row" href="c/index.html"><span class="row-letter">C</span><span class="row-label">15만원</span><span class="row-arrow">→</span></a>
+      <a class="row" href="d/index.html"><span class="row-letter">D</span><span class="row-label">20만원</span><span class="row-arrow">→</span></a>
+      <a class="row" href="e/index.html"><span class="row-letter">E</span><span class="row-label">30만원</span><span class="row-arrow">→</span></a>
+      <a class="row" href="f/index.html"><span class="row-letter">F</span><span class="row-label">고료조정</span><span class="row-arrow">→</span></a>
+    </div>
+  </div>
+</div>
+
+<script>
+const PW = "0907";
+function unlock(){
+  document.getElementById('gate').classList.add('hidden');
+  document.getElementById('content').classList.add('show');
+}
+function checkPw(){
+  const v = document.getElementById('pw').value;
+  if(v === PW){
+    sessionStorage.setItem('nuricle_hub_ok','1');
+    unlock();
+  } else {
+    document.getElementById('gate-err').textContent = '비밀번호가 올바르지 않습니다.';
+  }
+}
+document.getElementById('pw').addEventListener('keydown', e => { if(e.key === 'Enter') checkPw(); });
+if(sessionStorage.getItem('nuricle_hub_ok') === '1'){ unlock(); }
+</script>
+</body>
+</html>
